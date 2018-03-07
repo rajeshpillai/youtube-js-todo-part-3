@@ -1,0 +1,44 @@
+body {
+background-color: #FAFAFA;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #FAFAFA;
+}
+  
+.todo-header {
+    width: 100%;
+    text-align: center;
+}
+  
+.row {
+
+}
+  
+#todos {
+    border: 1px solid gray;
+    padding:15px;
+    background-color: rgb(226, 224, 224);
+}
+  
+#todos li {
+    padding-left: 0;
+    margin: 15px;
+}
+  
+  
+.todo-completed {
+    text-decoration:line-through;
+}
+  
+.todo-completed button {
+    text-decoration: none;
+}
+  
+.btn {
+    display: inline;
+}

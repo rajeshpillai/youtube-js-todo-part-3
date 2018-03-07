@@ -1,0 +1,28 @@
+<!doctype HTML>
+<html>
+    <head>
+        <title>My awesome todo application</title>
+        <link href="css/site.css" rel="stylesheet"/>
+    </head>
+    <body>
+      <div class="container">
+        <div class="row">
+          <h2 class="todo-header">Simple Todo App</h2>
+          <h3>What do I want to do today?</h3>
+        </div>
+        <div class="row">
+          <form>
+            <input id="todo" type="text" placeholder="my todo"/>
+            <button onclick="todoApp.addTodo()" type="button">Add Todo</button>
+          </form>
+        </div>
+        <div class="row">
+            <ul id="todos" ondblclick="todoApp.onToggleEdit()">
+            </ul>
+        </div>
+      </div>
+      <script src="app/services/todo.service.js" type="application/javascript"></script>  
+      <script src="app/todo.js" type="application/javascript">  
+      </script>
+    </body>
+</html>
