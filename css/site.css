@@ -23,6 +23,7 @@ background-color: #FAFAFA;
     border: 1px solid gray;
     padding:15px;
     background-color: rgb(226, 224, 224);
+    width: 600px;
 }
   
 #todos li {
@@ -41,4 +42,14 @@ background-color: #FAFAFA;
   
 .btn {
     display: inline;
+}
+
+.current-page {
+    background-color: skyblue;
+    color: black;
+}
+
+.pagination-btn.next, .pagination-btn.prev {
+    background-color: lightcoral;
+    color: black;
 }

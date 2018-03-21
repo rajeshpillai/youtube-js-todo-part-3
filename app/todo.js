@@ -11,6 +11,10 @@ var todoApp = {
 
         todoService.addTodo(newTodo);
         this.appendElement(newTodo);
+
+        pagination.render();
+        pagination.gotoLastPage();
+
     },
     // Takes model->append to parent view
     appendElement: function (todo) {
@@ -124,15 +128,18 @@ var todoApp = {
     removeTodo: function (el, todoId) {
         todoService.removeTodo(todoId);
         todoApp.removeElement(el.parentNode);
+
+        pagination.render();
+        pagination.gotoLastPage();
     },
 
     removeElement: function (el) {
         todoList.removeChild(el);
     },
 
-    render: function () {
+    render: function (todos) {
         let html = "";
-        let todos = todoService.getAll();
+        //let todos = todoService.getAll();
 
         if (todos.length === 0) {
             todoList.innerHTML = "No todos yet! Be awesome and create some todos!!";
@@ -145,4 +152,4 @@ var todoApp = {
     }
 };
 
-todoApp.render();
+todoApp.render(todoService.getPagedData(1, pagination.pageLength));

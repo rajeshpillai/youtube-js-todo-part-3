@@ -6,13 +6,25 @@ var state = {
     ] 
 };
 
+// Lets create some sample tasks
+for(let i = 4; i <= 50; i++) {
+    state.todos.push({
+        id: i,
+        task: "Some random task " + i,
+        status: false,
+        edit: false
+    })
+}
+
 var todoService = {
     getAll: function () {
         return state.todos;
     },
 
     addTodo: function (newTodo) {
-        newTodo.id = state.todos.length + 1;  // Not a good practice to create ID
+        //newTodo.id = state.todos.length + 1;  // Not a good practice to create ID
+        let maxId = Math.max.apply(Math, state.todos.map((todo)=>{return todo.id}));
+        newTodo.id = maxId + 1;
         state.todos = [...state.todos, newTodo];
     },
 
@@ -53,5 +65,15 @@ var todoService = {
         state.todos = [...todos];
 
         return currentTodo;
+    },
+    getTodosCount: function () {
+        return state.todos.length;
+    },
+    getPagedData: function (pageNo, pageLength) {
+        let startOfRecord = (pageNo - 1) * pageLength;
+        let endOfRecord = startOfRecord + pageLength;
+
+        let pagedData = state.todos.slice(startOfRecord, endOfRecord);
+        return pagedData;
     }
 };
